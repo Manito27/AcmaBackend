@@ -2,7 +2,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qf6-d7m%2sj^vj3n^03p=2awkt@(vynw+u@spn2negx&kw-wq!'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['acmaconsultancy.com', 'https://www.acmaconsultancy.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['acma-admin.vercel.app', 'https://acma-admin.vercel.app/', '127.0.0.1']
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -35,8 +37,14 @@ REST_FRAMEWORK = {
 
 # Configurações CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # URL do React
-    "http://127.0.0.1:3000",
+ #   "http://localhost:3000",  # URL do React
+ #   "http://127.0.0.1:3000",
+    "https://acmaconsultancy.com",
+    "https://www.acmaconsultancy.com",
+    "https://acma-admin.vercel.app"
+
+
+    
 ]
 
 # Para desenvolvimento, você pode permitir todas as origens
@@ -73,6 +81,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     #meus
   # Deve vir primeiro
@@ -155,3 +164,6 @@ import os
 
 MEDIA_URL = '/documentos/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/documentos')
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
