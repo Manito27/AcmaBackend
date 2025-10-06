@@ -54,6 +54,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+ROOT_URLCONF = 'backend.urls'
+
+WSGI_APPLICATION = 'backend.wsgi.application'
+
+
 
 
 """
